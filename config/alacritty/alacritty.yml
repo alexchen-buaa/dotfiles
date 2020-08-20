@@ -1,0 +1,42 @@
+env:
+        TERM: alacritty
+
+window:
+        # window with title bars
+        decorations: full
+
+font:
+        normal:
+                family: PragmataPro
+        bold:
+                family: PragmataPro
+        size: 16.0
+# Colors (quantum)
+colors:
+        # Default colors
+        primary:
+                background: '#253237'
+                foreground: '#A4B2BC'
+
+        # Normal colors
+        normal:
+                black: '#01060E'
+                red: '#D76F83'
+                green: '#88BA7E'
+                yellow: '#D5B779'
+                blue: '#72ADE2'
+                magenta: '#DD7186'
+                cyan: '#6DC5CD'
+                white: '#A4B1BC'
+
+        # Bright colors
+        bright:
+                black: '#01060E'
+                red: '#D76F83'
+                green: '#88BA7E'
+                yellow: '#D5B779'
+                blue: '#72ADE2'
+                magenta: '#DD7186'
+                cyan: '#6DC5CD'
+                white: '#A4B1BC'
+
