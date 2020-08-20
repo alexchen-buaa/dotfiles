@@ -1,0 +1,61 @@
+- defaults:
+        link:
+                relink: true
+
+- clean: ['~']
+
+- clean:
+        ~/:
+                force: true
+        ~/.config:
+                recursive: true
+
+- create:
+        - ~/.tmuxthemes
+
+- link:
+        ~/.zshrc:
+                path: zshrc
+        ~/.bash_profile:
+                path: bash_profile
+        ~/.condarc:
+                path: condarc
+        ~/.config:
+                glob: true
+                path: config/*
+                relink: true
+        ~/.gitconfig:
+                path: gitconfig
+        ~/.inputrc:
+                path: inputrc
+        ~/.npmrc:
+                path: npmrc
+        ~/.pythonrc:
+                path: pythonrc
+        ~/.tmux.conf:
+                path: tmux.conf
+        ~/.vimrc:
+                path: vimrc
+        ~/.yarnrc:
+                path: yarnrc
+        ~/.tmuxthemes/base16_harmonic16.tmuxtheme:
+                create: true
+                path: base16_harmonic16.tmuxtheme
+        ~/.tmuxthemes/github.tmuxtheme:
+                create: true
+                path: github.tmuxtheme
+        ~/.tmuxthemes/gruvbox.tmuxtheme:
+                create: true
+                path: gruvbox.tmuxtheme
+        ~/.tmuxthemes/molokai.tmuxtheme:
+                create: true
+                path: molokai.tmuxtheme
+        ~/.tmuxthemes/powerlineish.tmuxtheme:
+                create: true
+                path: powerlineish.tmuxtheme
+        ~/.tmuxthemes/tomorrow.tmuxtheme:
+                create: true
+                path: tomorrow.tmuxtheme
+        ~/.tmuxthemes/wombat.tmuxtheme:
+                create: true
+                path: wombat.tmuxtheme

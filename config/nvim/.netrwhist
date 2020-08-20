@@ -1,0 +1,12 @@
+let g:netrw_dirhistmax  =10
+let g:netrw_dirhistcnt =9
+let g:netrw_dirhist_9='/Users/alexchen/local/classroom/numericalanalysis/compintern_1'
+let g:netrw_dirhist_8='/Users/alexchen/local/tapython/cand_2'
+let g:netrw_dirhist_7='/Users/alexchen/local/tapython'
+let g:netrw_dirhist_6='/Users/alexchen/local'
+let g:netrw_dirhist_5='/Users/alexchen'
+let g:netrw_dirhist_4='/Users/alexchen/.local'
+let g:netrw_dirhist_3='/Users/alexchen'
+let g:netrw_dirhist_2='/Users/alexchen/local/tapython/cand_2'
+let g:netrw_dirhist_1='/Users/alexchen/local/tapython'
+let g:netrw_dirhist_0='/Users/alexchen/local/tapython/ex_0'
