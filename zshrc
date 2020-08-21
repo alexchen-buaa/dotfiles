@@ -29,6 +29,9 @@ lever(){
 	fi
 }
 
+# antigen support
+source /usr/local/share/antigen/antigen.zsh
+
 # >>> conda initialize >>>
 # !! Contents within this block are managed by 'conda init' !!
 __conda_setup="$('/Users/alexchen/anaconda3/bin/conda' 'shell.zsh' 'hook' 2> /dev/null)"
@@ -49,5 +52,3 @@ eval $(thefuck --alias)
 source /usr/local/share/zsh-autosuggestions/zsh-autosuggestions.zsh
 bindkey '^y' autosuggest-accept
 source /usr/local/share/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
-
-
