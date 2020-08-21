@@ -30,6 +30,7 @@ Plugin 'zchee/deoplete-jedi'
 Plugin 'klen/python-mode'
 Plugin 'fatih/vim-go'
 Plugin 'suan/vim-instant-markdown'
+Plugin 'tpope/vim-fugitive'
 " All of your Plugins must be added before the following line
 
 call vundle#end()            " required

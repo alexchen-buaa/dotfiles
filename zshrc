@@ -16,6 +16,8 @@ alias la='exa -a'
 alias ll='exa -lha'
 alias home='cd ~'
 export EDITOR=nvim
+export LC_CTYPE='zh_CN.UTF-8'
+export LANG='en_US.UTF-8'
 
 lever(){
 	if [[ $# -eq 0 ]]

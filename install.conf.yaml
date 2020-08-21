@@ -59,3 +59,5 @@
         ~/.tmuxthemes/wombat.tmuxtheme:
                 create: true
                 path: wombat.tmuxtheme
+        ~/.terminalizer:
+                path: terminalizer
