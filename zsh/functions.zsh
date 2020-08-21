@@ -32,3 +32,8 @@ up()
     	fi
     	cd "${cdir}"
 }
+
+rea(){
+	conda deactivate
+	conda activate base
+}
