@@ -32,6 +32,13 @@ lever(){
 # antigen support
 source /usr/local/share/antigen/antigen.zsh
 
+antigen bundle zsh-users/zsh-autosuggestions
+
+# as the last bundle!
+antigen bundle zsh-users/zsh-syntax-highlighting
+
+antigen apply
+
 # >>> conda initialize >>>
 # !! Contents within this block are managed by 'conda init' !!
 __conda_setup="$('/Users/alexchen/anaconda3/bin/conda' 'shell.zsh' 'hook' 2> /dev/null)"
@@ -47,8 +54,13 @@ fi
 unset __conda_setup
 # <<< conda initialize <<<
 
+# broot
 source /Users/alexchen/Library/Preferences/org.dystroy.broot/launcher/bash/br
+
+# the fuck
 eval $(thefuck --alias)
-source /usr/local/share/zsh-autosuggestions/zsh-autosuggestions.zsh
-bindkey '^y' autosuggest-accept
-source /usr/local/share/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
+
+# old plugins
+#source /usr/local/share/zsh-autosuggestions/zsh-autosuggestions.zsh
+#bindkey '^y' autosuggest-accept
+#source /usr/local/share/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
