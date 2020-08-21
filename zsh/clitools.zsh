@@ -12,3 +12,6 @@ eval $(thefuck --alias)
 
 # ffmpeg, you can change the path to wherever you like
 export PATH="/Users/alexchen/ffmpeg/bin:$PATH"
+
+# lever
+source ~/toolbox/lever/lever.zsh

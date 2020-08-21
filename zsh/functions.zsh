@@ -1,13 +1,3 @@
-lever(){
-	if [[ $# -eq 0 ]]
-	then
-		python ~/local/toolbox/lever/lever.py
-	elif [ $1 = "pull" ]
-	then
-		python ~/local/toolbox/lever/pull.py
-	fi
-}
-
 bing(){
     	if [[ $# -eq 0 ]];then
         	echo "query required"
