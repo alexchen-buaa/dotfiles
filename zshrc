@@ -60,7 +60,5 @@ source /Users/alexchen/Library/Preferences/org.dystroy.broot/launcher/bash/br
 # the fuck
 eval $(thefuck --alias)
 
-# old plugins
-#source /usr/local/share/zsh-autosuggestions/zsh-autosuggestions.zsh
-#bindkey '^y' autosuggest-accept
-#source /usr/local/share/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
+# ctrl-y to accept autosuggestions
+bindkey '^y' autosuggest-accept
