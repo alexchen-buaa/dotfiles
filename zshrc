@@ -9,15 +9,16 @@ export HOMEBREW_NO_AUTO_UPDATE=true
 export HOMEBREW_BOTTLE_DOMAIN=https://mirrors.tuna.tsinghua.edu.cn/homebrew-bottles
 export SDKROOT=$(xcrun --sdk macosx --show-sdk-path)
 export PYTHONSTARTUP=~/.pythonrc
+export EDITOR=nvim
+export LC_CTYPE='zh_CN.UTF-8'
+export LANG='en_US.UTF-8'
 [ -f /usr/local/etc/profile.d/autojump.sh ] && . /usr/local/etc/profile.d/autojump.sh
 
+# alias
 alias ls='exa'
 alias la='exa -a'
 alias ll='exa -lha'
 alias home='cd ~'
-export EDITOR=nvim
-export LC_CTYPE='zh_CN.UTF-8'
-export LANG='en_US.UTF-8'
 
 lever(){
 	if [[ $# -eq 0 ]]
@@ -34,8 +35,7 @@ source /usr/local/share/antigen/antigen.zsh
 
 antigen bundle zsh-users/zsh-autosuggestions
 
-# as the last bundle!
-antigen bundle zsh-users/zsh-syntax-highlighting
+# zsh-syntax-highlighting prefer manual installation
 
 antigen apply
 
@@ -60,5 +60,7 @@ source /Users/alexchen/Library/Preferences/org.dystroy.broot/launcher/bash/br
 # the fuck
 eval $(thefuck --alias)
 
+# manual installation of zsh-syntax-highlighting
+source /usr/local/share/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
 # ctrl-y to accept autosuggestions
 bindkey '^y' autosuggest-accept
