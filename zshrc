@@ -1,43 +1,17 @@
-bindkey -v
-export TERM=xterm-256color
-# export PATH="/Users/alexchen/anaconda3/bin:$PATH"  # commented out by conda initialize
-export PATH="/Users/alexchen/ffmpeg/bin:$PATH"
-#export PATH="/Users/alexchen/anaconda3/lib/graphviz:$PATH"
-autoload -U colors && colors
-export PS1="%{$fg[cyan]%}%1~ %{$reset_color%}%#%{$fg[green]%} >>>%{$reset_color%} "
-export HOMEBREW_NO_AUTO_UPDATE=true
-export HOMEBREW_BOTTLE_DOMAIN=https://mirrors.tuna.tsinghua.edu.cn/homebrew-bottles
-export SDKROOT=$(xcrun --sdk macosx --show-sdk-path)
-export PYTHONSTARTUP=~/.pythonrc
-export EDITOR=nvim
-export LC_CTYPE='zh_CN.UTF-8'
-export LANG='en_US.UTF-8'
-[ -f /usr/local/etc/profile.d/autojump.sh ] && . /usr/local/etc/profile.d/autojump.sh
+# environmental variables
+source ~/.zsh/envvars.zsh
 
-# alias
-alias ls='exa'
-alias la='exa -a'
-alias ll='exa -lha'
-alias home='cd ~'
+# prompt
+source ~/.zsh/prompt.zsh
 
-lever(){
-	if [[ $# -eq 0 ]]
-	then
-		python ~/local/toolbox/lever/lever.py
-	elif [ $1 = "pull" ]
-	then
-		python ~/local/toolbox/lever/pull.py
-	fi
-}
+# command-line tools
+source ~/.zsh/clitools.zsh
 
-# antigen support
-source /usr/local/share/antigen/antigen.zsh
+# aliases
+source ~/.zsh/aliases.zsh
 
-antigen bundle zsh-users/zsh-autosuggestions
-
-# zsh-syntax-highlighting prefer manual installation
-
-antigen apply
+# functions
+source ~/.zsh/functions.zsh
 
 # >>> conda initialize >>>
 # !! Contents within this block are managed by 'conda init' !!
@@ -54,13 +28,5 @@ fi
 unset __conda_setup
 # <<< conda initialize <<<
 
-# broot
-source /Users/alexchen/Library/Preferences/org.dystroy.broot/launcher/bash/br
-
-# the fuck
-eval $(thefuck --alias)
-
-# manual installation of zsh-syntax-highlighting
-source /usr/local/share/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
-# ctrl-y to accept autosuggestions
-bindkey '^y' autosuggest-accept
+# plugins
+source ~/.zsh/plugins.zsh

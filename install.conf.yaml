@@ -61,3 +61,5 @@
                 path: wombat.tmuxtheme
         ~/.terminalizer:
                 path: terminalizer
+        ~/.zsh:
+                path: zsh

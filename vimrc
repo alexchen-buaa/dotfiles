@@ -1,5 +1,4 @@
-set termguicolors
-let mapleader = ","
+" Vundle part
 set nocompatible              " be iMproved, required
 filetype off                  " required
 
@@ -39,29 +38,30 @@ filetype plugin indent on    " required
 "filetype plugin on
 "put your none plugin stuff after this line 
 
-"Advice on colorscheme:
-"no classifying things, just the schemes you love best!
-"favors modern-looking themes...
-"OceanicNext: modern looking, confortable
-"PaperColor: cute in light, a bit dull for dark
-"Tomorrow / Tomorrow Night: modern theme, as cute as PaperColor
-"Atelier series: pretty genuine looking, but a bit dull
-"abra: modern but dull (ordinary, atom looking)
-"anderson: modern
-"apprentice: modern and eyes-friendly
-"arcadia: a kind of vague popup menu (kinda like it)
-"atom: really modern looking, really confortable, but dull
+" coloring
+set termguicolors
 
+" <leader> for certain plugins like EasyMotion
+let mapleader = ","
+
+" syntax highlighting
 syntax enable
+
+" numbering / relative numbering for fast movement
 set nu
-set autoindent
 set relativenumber
+
+" indentation
+set autoindent
+
+" fuzzy searching
 set ignorecase
 set smartcase
 
 " 'Q' in normal mode enters Ex mode. You almost never want this.
 nmap Q <Nop>
 
+" colorscheme / statusline
 colorscheme quantum
 "colorscheme molokai
 "colorscheme wombat
@@ -71,8 +71,16 @@ let g:airline_theme='powerlineish'
 "let g:airline_theme='wombat'
 "let g:airline_theme='tomorrow'
 "let g:airline_theme='base16_grayscale'
+let g:airline_powerline_fonts = 1
+let g:airline#extensions#tabline#enabled = 1
+
+" so you don't have to reach for <Esc>
 inoremap <C-[> <Esc>
+
+" NerdTree
 map <C-n> :NERDTreeToggle<CR>
+
+" vimtex
 let g:vimtex_latexmk_options='-pdf -pdflatex="xelatex -synctex=1 \%S \%O" -verbose -file-line-error -interaction=nonstopmode'
 let g:tex_flavor='latex'
 let g:vimtex_view_method='skim'
@@ -81,11 +89,14 @@ let conceallevel=1
 let g:tex_conceal='abdmg'
 let g:vimtex_complete_enabled=1
 let g:vimtex_compiler_progname='nvr'
+
+" UltiSnips
 let g:UltiSnipsExpandTrigger="<tab>"
 let g:UltiSnipsJumpForwardTrigger="<tab>"
 let g:UltiSnipsJumpBackwardTrigger="<s-tab>"
-let g:airline_powerline_fonts = 1
-let g:airline#extensions#tabline#enabled = 1
+let g:ultisnips_python_style='google' " docstring style
+
+" deoplete
 let g:deoplete#enable_at_startup = 1
 call deoplete#custom#var('omni', 'input_patterns', {
           \ 'tex': g:vimtex#re#deoplete
@@ -94,13 +105,23 @@ call deoplete#custom#option('max_list', 15)
 let g:pymode_lint=0
 let g:pymode_run=1
 call deoplete#custom#option('omni_patterns', { 'go': '[^. *\t]\.\w*' })
-let g:ultisnips_python_style='google'
+
+" ale
 let g:ale_linters = {
 	\ 'go': ['gopls'],
 	\}
+
+" I suppose the completion plugins are pretty much connected
+" so some of them might get mixed
+
+" instant markdown
 let g:instant_markdown_allow_unsafe_content = 1
+
+" this shuts the popup showing function hints after completion
+" the popup actually useful when writing C (when things get long)
 "autocmd InsertLeave,CompleteDone * if pumvisible() == 0 | pclose | endif
 
+" python pep-8
 au BufNewFile,BufRead *.py set tabstop=4
 au BufNewFile,BufRead *.py set softtabstop=4
 au BufNewFile,BufRead *.py set shiftwidth=4
