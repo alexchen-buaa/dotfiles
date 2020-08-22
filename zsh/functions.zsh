@@ -1,3 +1,4 @@
+# this comes from wuwe1's dotfiles
 bing(){
     	if [[ $# -eq 0 ]];then
         	echo "query required"
@@ -11,6 +12,7 @@ bing(){
     	curl -s "https://cn.bing.com/dict/($query)?mkt=zh-CN&setlang=ZH" | pup '.qdef > ul text{}'
 }
 
+# this too comes from wuwe1's dotfiles
 up()
 {
     	local cdir="$(pwd)"
@@ -33,6 +35,7 @@ up()
     	cd "${cdir}"
 }
 
+# if python3 doesn't work in tmux, do this
 rea(){
 	conda deactivate
 	conda activate base

@@ -15,3 +15,6 @@ export PATH="/Users/alexchen/ffmpeg/bin:$PATH"
 
 # lever
 source ~/toolbox/lever/lever.zsh
+
+# tp
+source ~/toolbox/tp/tp.zsh
