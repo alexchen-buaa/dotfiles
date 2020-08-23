@@ -66,13 +66,15 @@ colorscheme quantum
 "colorscheme molokai
 "colorscheme wombat
 "colorscheme Tomorrow-Night
-let g:airline_theme='powerlineish'
+"let g:airline_theme='powerlineish'
+let g:airline_theme='hybrid'
 "let g:airline_theme='molokai'
 "let g:airline_theme='wombat'
 "let g:airline_theme='tomorrow'
 "let g:airline_theme='base16_grayscale'
 let g:airline_powerline_fonts = 1
 let g:airline#extensions#tabline#enabled = 1
+let g:airline#extensions#ale#enabled = 1
 
 " so you don't have to reach for <Esc>
 inoremap <C-[> <Esc>

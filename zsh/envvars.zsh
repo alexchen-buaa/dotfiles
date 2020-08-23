@@ -26,3 +26,6 @@ export EDITOR=nvim
 # locale
 export LC_CTYPE='zh_CN.UTF-8'
 export LANG='en_US.UTF-8'
+
+# tp installation
+export TP_INSTALL='/Users/alexchen/toolbox/tp'
