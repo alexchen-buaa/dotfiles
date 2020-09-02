@@ -30,6 +30,8 @@ Plugin 'klen/python-mode'
 Plugin 'fatih/vim-go'
 Plugin 'suan/vim-instant-markdown'
 Plugin 'tpope/vim-fugitive'
+Plugin 'christoomey/vim-tmux-navigator'
+Plugin 'junegunn/fzf.vim'
 " All of your Plugins must be added before the following line
 
 call vundle#end()            " required
@@ -62,7 +64,8 @@ set smartcase
 nmap Q <Nop>
 
 " colorscheme / statusline
-colorscheme quantum
+colorscheme arcadia
+"colorscheme quantum
 "colorscheme molokai
 "colorscheme wombat
 "colorscheme Tomorrow-Night
@@ -133,3 +136,9 @@ au BufNewFile,BufRead *.py set autoindent
 au BufNewFile,BufRead *.py set smartindent
 au BufNewFile,BufRead *.py set fileformat=unix
 
+" vim-tmux-navigator
+" Disable tmux navigator when zooming the Vim pane
+let g:tmux_navigator_disable_when_zoomed = 1
+
+" fzf plugin
+set rtp+=/usr/local/opt/fzf

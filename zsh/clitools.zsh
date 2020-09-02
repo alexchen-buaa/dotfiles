@@ -18,3 +18,6 @@ source ~/toolbox/lever/lever.zsh
 
 # tp
 source ~/toolbox/tp/tp.zsh
+
+# fzf
+[ -f ~/.fzf.zsh ] && source ~/.fzf.zsh

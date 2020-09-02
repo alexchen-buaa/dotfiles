@@ -1,42 +1,75 @@
 env:
-        TERM: alacritty
+        TERM: alacritty(´▽｀)
 
 window:
+        #dimensions:
+                #columns: 72
+                #lines: 20
         # window with title bars
         decorations: full
+        title: Alacritty(´▽｀)
 
 font:
         normal:
                 family: PragmataPro
         bold:
                 family: PragmataPro
-        size: 16.0
-# Colors (quantum)
+        size: 15.0
+
+## Colors (quantum)
+#colors:
+        ## Default colors
+        #primary:
+                #background: '#253237'
+                #foreground: '#A4B2BC'
+
+        ## Normal colors
+        #normal:
+                #black: '#01060E'
+                #red: '#D76F83'
+                #green: '#88BA7E'
+                #yellow: '#D5B779'
+                #blue: '#72ADE2'
+                #magenta: '#DD7186'
+                #cyan: '#6DC5CD'
+                #white: '#A4B1BC'
+
+        ## Bright colors
+        #bright:
+                #black: '#01060E'
+                #red: '#D76F83'
+                #green: '#88BA7E'
+                #yellow: '#D5B779'
+                #blue: '#72ADE2'
+                #magenta: '#DD7186'
+                #cyan: '#6DC5CD'
+                #white: '#A4B1BC'
+
+# colors (arcadia)
 colors:
         # Default colors
         primary:
-                background: '#253237'
-                foreground: '#A4B2BC'
+                background: '#3C3C3C'
+                foreground: '#DEDEDE'
 
         # Normal colors
         normal:
-                black: '#01060E'
-                red: '#D76F83'
-                green: '#88BA7E'
-                yellow: '#D5B779'
-                blue: '#72ADE2'
-                magenta: '#DD7186'
-                cyan: '#6DC5CD'
-                white: '#A4B1BC'
+                black: '#262626'
+                red: '#AD005E'
+                green: '#067B7B'
+                yellow: '#E87D05'
+                blue: '#0087AF'
+                magenta: '#8787D7'
+                cyan: '#5E86AD'
+                white: '#DEDEDE'
 
         # Bright colors
         bright:
-                black: '#01060E'
-                red: '#D76F83'
-                green: '#88BA7E'
-                yellow: '#D5B779'
-                blue: '#72ADE2'
-                magenta: '#DD7186'
-                cyan: '#6DC5CD'
-                white: '#A4B1BC'
-
+                black: '#262626'
+                red: '#AD005E'
+                green: '#067B7B'
+                yellow: '#E87D05'
+                blue: '#0087AF'
+                magenta: '#8787D7'
+                cyan: '#5E86AD'
+                white: '#DEDEDE'
