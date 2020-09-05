@@ -1,9 +1,6 @@
 # this file sources non-plugin cli programs
 # like br, thefuck etc.
 
-# broot
-source /Users/alexchen/Library/Preferences/org.dystroy.broot/launcher/bash/br
-
 # the fuck
 eval $(thefuck --alias)
 

@@ -20,6 +20,7 @@
         ~/.config:
                 glob: true
                 path: config/*
+                force: true
                 relink: true
         ~/.gitconfig:
                 path: gitconfig

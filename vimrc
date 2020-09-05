@@ -32,6 +32,8 @@ Plugin 'suan/vim-instant-markdown'
 Plugin 'tpope/vim-fugitive'
 Plugin 'christoomey/vim-tmux-navigator'
 Plugin 'junegunn/fzf.vim'
+Plugin 'tpope/vim-surround'
+Plugin 'tpope/vim-repeat'
 " All of your Plugins must be added before the following line
 
 call vundle#end()            " required
@@ -45,6 +47,7 @@ set termguicolors
 
 " <leader> for certain plugins like EasyMotion
 let mapleader = ","
+let maplocalleader = ","
 
 " syntax highlighting
 syntax enable
@@ -89,23 +92,24 @@ map <C-n> :NERDTreeToggle<CR>
 let g:vimtex_latexmk_options='-pdf -pdflatex="xelatex -synctex=1 \%S \%O" -verbose -file-line-error -interaction=nonstopmode'
 let g:tex_flavor='latex'
 let g:vimtex_view_method='skim'
+"let g:vimtex_view_method='zathura'
 let g:vimtex_quickfix_mode=0
 let conceallevel=1
 let g:tex_conceal='abdmg'
 let g:vimtex_complete_enabled=1
 let g:vimtex_compiler_progname='nvr'
 
-" UltiSnips
+"" UltiSnips
 let g:UltiSnipsExpandTrigger="<tab>"
 let g:UltiSnipsJumpForwardTrigger="<tab>"
 let g:UltiSnipsJumpBackwardTrigger="<s-tab>"
 let g:ultisnips_python_style='google' " docstring style
 
-" deoplete
+"" deoplete
 let g:deoplete#enable_at_startup = 1
 call deoplete#custom#var('omni', 'input_patterns', {
-          \ 'tex': g:vimtex#re#deoplete
-          \})
+	  \ 'tex': g:vimtex#re#deoplete
+	  \})
 call deoplete#custom#option('max_list', 15)
 let g:pymode_lint=0
 let g:pymode_run=1

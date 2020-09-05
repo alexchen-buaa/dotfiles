@@ -7,6 +7,9 @@ export TERM=xterm-256color
 # ffmpeg installation
 export PATH="/Users/alexchen/ffmpeg/bin:$PATH"
 
+# conda PATH
+export PATH="/anaconda3/bin:$PATH"
+
 # -
 autoload -U colors && colors
 
@@ -29,3 +32,5 @@ export LANG='en_US.UTF-8'
 
 # tp installation
 export TP_INSTALL='/Users/alexchen/toolbox/tp'
+
+# pkg-config path
