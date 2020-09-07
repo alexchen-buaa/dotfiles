@@ -132,7 +132,8 @@ let g:instant_markdown_allow_unsafe_content = 1
 let g:instant_markdown_mathjax = 1
 
 " vim-markdown
-let g:vim_markdown_folding_level = 2
+"let g:vim_markdown_folding_level = 2
+let g:vim_markdown_folding_disabled = 1
 au BufNewFile,BufRead *.md set conceallevel=2
 let g:tex_conceal = ""
 let g:vim_markdown_math = 1
