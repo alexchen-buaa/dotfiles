@@ -125,6 +125,7 @@ let g:ale_linters = {
 
 " instant markdown
 let g:instant_markdown_allow_unsafe_content = 1
+let g:instant_markdown_mathjax = 1
 
 " this shuts the popup showing function hints after completion
 " the popup actually useful when writing C (when things get long)
