@@ -28,12 +28,15 @@ Plugin 'shougo/deoplete-clangx'
 Plugin 'zchee/deoplete-jedi'
 Plugin 'klen/python-mode'
 Plugin 'fatih/vim-go'
-Plugin 'suan/vim-instant-markdown'
+Plugin 'suan/vim-instant-markdown', {'rtp': 'after'}
 Plugin 'tpope/vim-fugitive'
 Plugin 'christoomey/vim-tmux-navigator'
 Plugin 'junegunn/fzf.vim'
 Plugin 'tpope/vim-surround'
 Plugin 'tpope/vim-repeat'
+Plugin 'godlygeek/tabular'
+Plugin 'plasticboy/vim-markdown'
+Plugin 'majutsushi/tagbar'
 " All of your Plugins must be added before the following line
 
 call vundle#end()            " required
@@ -94,8 +97,8 @@ let g:tex_flavor='latex'
 let g:vimtex_view_method='skim'
 "let g:vimtex_view_method='zathura'
 let g:vimtex_quickfix_mode=0
-let conceallevel=1
-let g:tex_conceal='abdmg'
+set conceallevel=1
+let g:tex_conceal="abdgm"
 let g:vimtex_complete_enabled=1
 let g:vimtex_compiler_progname='nvr'
 
@@ -124,8 +127,15 @@ let g:ale_linters = {
 " so some of them might get mixed
 
 " instant markdown
+filetype plugin on
 let g:instant_markdown_allow_unsafe_content = 1
 let g:instant_markdown_mathjax = 1
+
+" vim-markdown
+let g:vim_markdown_folding_level = 2
+au BufNewFile,BufRead *.md set conceallevel=2
+let g:tex_conceal = ""
+let g:vim_markdown_math = 1
 
 " this shuts the popup showing function hints after completion
 " the popup actually useful when writing C (when things get long)
@@ -147,3 +157,7 @@ let g:tmux_navigator_disable_when_zoomed = 1
 
 " fzf plugin
 set rtp+=/usr/local/opt/fzf
+
+" tagbar binding
+" if tagbar's not working, do brew install ctags-exuberant
+nmap <C-t> :TagbarToggle<CR>
