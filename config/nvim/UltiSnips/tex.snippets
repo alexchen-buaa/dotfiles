@@ -98,26 +98,36 @@ endsnippet
 
 # special symbols
 
+context "math()"
 snippet vee "Vee" i
 \vee
 endsnippet
 
+context "math()"
 snippet wee "Wedge" i
 \wedge
 endsnippet
 
+context "math()"
 snippet ra "Rightarrow" i
 \rightarrow
 endsnippet
 
+context "math()"
 snippet la "Leftarrow" i
 \leftarrow
 endsnippet
 
+context "math()"
 snippet lr "Leftrightarrow" i
 \leftrightarrow
 endsnippet
 
+snippet LR "LEFTRIGHTARROW" i
+\Leftrightarrow
+endsnippet
+
+context "math()"
 snippet sim "Sim" i
 \sim
 endsnippet
@@ -132,11 +142,6 @@ snippet cup "Cup / Union" i
 \cup
 endsnippet
 
-snippet xx "Times Sign" w
-\times
-endsnippet
-
-context "math()"
 snippet an "And Sign / Separation" w
 &
 endsnippet
@@ -149,44 +154,43 @@ snippet bh "Backslash" i
 \
 endsnippet
 
+context "math()"
 snippet fa "For all" i
 \forall
 endsnippet
 
+context "math()"
 snippet pr "Prime" i
 \prime
 endsnippet
 
+context "math()"
 snippet inn "Contained In" i
 \in
 endsnippet
 
+context "math()"
 snippet lim "Limit" i
 \lim_{$1}$0
 endsnippet
 
+context "math()"
 snippet sup "Supremum" i
 \sup_{$1}$0
 endsnippet
 
+context "math()"
 snippet inf "Infimum" i
 \inf_{$1}$0
 endsnippet
 
+context "math()"
 snippet abs "Absolute value" i
 \left\vert$1\right\vert$0
 endsnippet
 
 snippet el "End of Line" i
 \\\\
-endsnippet
-
-snippet es "Exists" i
-\exists
-endsnippet
-
-snippet st "Such that" i
-\ s.t.\ 
 endsnippet
 
 snippet qed "QED symbol" i
@@ -216,6 +220,22 @@ endsnippet
 snippet dm "Math" wA
 \[
 $1
+.\] $0
+endsnippet
+
+snippet dc "math cases" wA
+\[
+\begin{cases}
+	$1
+\end{cases}
+.\] $0
+endsnippet
+
+snippet da "math aligned" wA
+\[
+\begin{aligned}
+	$1
+\end{aligned}
 .\] $0
 endsnippet
 
@@ -290,14 +310,131 @@ snippet "hat" "hat" riA
 endsnippet
 
 context "math()"
+priority 10
+snippet "tilde" "tilde" riA
+\tilde{$1}$0
+endsnippet
+
+context "math()"
 priority 100
 snippet "([a-zA-Z])hat" "hat" riA
 \hat{`!p snip.rv=match.group(1)`}
 endsnippet
 
 context "math()"
+priority 100
+snippet "([a-zA-Z])tilde" "tilde" riA
+\tilde{`!p snip.rv=match.group(1)`}
+endsnippet
+
+context "math()"
+priority 100
+snippet "([a-zA-Z]+)bh" "postfix backslash" riA
+\\`!p snip.rv=match.group(1)`
+endsnippet
+
+context "math()"
 snippet "(\\?\w+)(,\.|\.,)" "Vector postfix" riA
 \vec{`!p snip.rv=match.group(1)`}
+endsnippet
+
+
+# thm envs
+snippet thm "theorem" i
+\begin{mdframed}[style=thm]
+	\begin{thm}
+		$1
+	\end{thm}
+\end{mdframed}
+endsnippet
+
+snippet lem "lemma" i
+\begin{mdframed}[style=thm]
+	\begin{lem}
+		$1
+	\end{lem}
+\end{mdframed}
+endsnippet
+
+snippet prop "proposition" i
+\begin{mdframed}[style=thm]
+	\begin{prop}
+		$1
+	\end{prop}
+\end{mdframed}
+endsnippet
+
+snippet cor "corollary" i
+\begin{mdframed}[style=thm]
+	\begin{cor}
+		$1
+	\end{cor}
+\end{mdframed}
+endsnippet
+
+snippet defn "definition" i
+\begin{mdframed}[style=defn]
+	\begin{defn}
+		$1
+	\end{defn}
+\end{mdframed}
+endsnippet
+
+snippet notion "notion" i
+\begin{mdframed}[style=notion]
+	\begin{notion}
+		$1
+	\end{notion}
+\end{mdframed}
+endsnippet
+
+snippet exmp "example" i
+\begin{mdframed}[style=exmp]
+	\begin{exmp}
+		$1
+	\end{exmp}
+\end{mdframed}
+endsnippet
+
+snippet xca "exercise" i
+\begin{mdframed}[style=xca]
+	\leavevmode
+	\begin{xca}
+		$1
+	\end{xca}
+\end{mdframed}
+endsnippet
+
+snippet rem "remark" i
+\begin{rem}
+	\leavevmode
+	$1
+\end{rem}
+endsnippet
+
+snippet pf "proof" i
+\begin{proof}
+	$1
+\end{proof}
+endsnippet
+
+snippet derive "derivation" i
+\begin{derive}
+	$1
+\end{derive}
+endsnippet
+
+snippet sol "solution" i
+\begin{solution}
+	$1
+\end{solution}
+endsnippet
+
+
+# course-specific snippets
+
+snippet wave "wave equation" i
+\frac{\partial^2 ${1:u}}{\partial t^2} - a^2 \frac{\partial^2 ${2:u}}{\partial x^2} = 
 endsnippet
 
 
@@ -327,12 +464,6 @@ endsnippet
 #\vdash_{$1}$0
 #endsnippet
 
-#snippet thm "Theorem" i
-#\begin{theorem}
-#$1
-#\end{theorem}$0
-#endsnippet
-
-#snippet kk "Real Curly Brackets" i
-#{$1}$0
-#endsnippet
+snippet kk "Real Curly Brackets" i
+{$1}$0
+endsnippet

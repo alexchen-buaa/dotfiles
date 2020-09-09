@@ -1,29 +1,68 @@
 %! TEX program = xelatex
-% in case you want Chinese support
-%\documentclass[CJK]{ctexart}
-%\usepackage{ctex}
 \documentclass[12pt]{article}
 \usepackage{enumerate}
 \usepackage{amsmath}
 \usepackage{amsfonts}
 \usepackage{amsthm}
+\usepackage{mdframed}
 \usepackage{mathrsfs}
 \usepackage{graphicx}
 \usepackage{subfigure}
 \usepackage{geometry}
 \usepackage{xcolor}
 \usepackage{float}
+\usepackage{fancyhdr}
 
-\newtheorem{def}{Definition}[chapter]
-\newtheorem{thm}{Theorem}[chapter]
-\newtheorem{lem}{Lemma}[chapter]
-\newtheorem{prf}{Proof}[chapter]
+% theorem envs
+\theoremstyle{plain}
+\newtheorem{thm}{Theorem}[section]
+\newtheorem{lem}[thm]{Lemma}
+\newtheorem{prop}[thm]{Proposition}
+\newtheorem*{cor}{Corollary}
 
-\title{Your Title Here}
+\theoremstyle{definition}
+\newtheorem*{notion}{Notion}
+\newtheorem{defn}{Definition}[section]
+\newtheorem{exmp}{Example}[section]
+\newtheorem{xca}{Exercise}[section]
+
+\theoremstyle{remark}
+\newtheorem*{rem}{Remark}
+\newtheorem*{derive}{Derivation}
+\newtheorem*{sol}{Solution}
+
+% pagestyle
+\pagestyle{fancy}
+\lhead{Autumn 2020}
+\chead{Partial Differential Equations}
+\lfoot{Autumn 2020}
+\cfoot{Partial Differential Equations}
+\rfoot{\thepage}
+\renewcommand{\headrulewidth}{0.4pt}
+\renewcommand{\footrulewidth}{0.4pt}
+
+% mdframe setting
+% integrated with snippets to use with amsthm
+\definecolor{babyblue}{rgb}{0.54, 0.81, 0.94}
+\mdfdefinestyle{thm}{linewidth=0pt, leftmargin=20pt, rightmargin=20pt, skipabove=10pt, skipbelow=10pt, %
+innertopmargin=5pt, innerrightmargin=10pt, innerleftmargin=10pt, innerbottommargin=20pt, %
+backgroundcolor=gray!20}
+\mdfdefinestyle{defn}{linewidth=0pt, leftmargin=20pt, rightmargin=20pt, skipabove=10pt, skipbelow=10pt, %
+innertopmargin=5pt, innerrightmargin=10pt, innerleftmargin=10pt, innerbottommargin=20pt, %
+backgroundcolor=teal!20}
+\mdfdefinestyle{notion}{linewidth=0pt, leftmargin=20pt, rightmargin=20pt, skipabove=10pt, skipbelow=10pt, %
+innertopmargin=5pt, innerrightmargin=10pt, innerleftmargin=10pt, innerbottommargin=20pt, %
+backgroundcolor=green!15}
+\mdfdefinestyle{xca}{linewidth=0pt, leftmargin=20pt, rightmargin=20pt, skipabove=10pt, skipbelow=10pt, %
+innertopmargin=5pt, innerrightmargin=10pt, innerleftmargin=10pt, innerbottommargin=20pt, %
+backgroundcolor=violet!10}
+\mdfdefinestyle{exmp}{linewidth=0pt, leftmargin=20pt, rightmargin=20pt, skipabove=10pt, skipbelow=10pt, %
+innertopmargin=5pt, innerrightmargin=10pt, innerleftmargin=10pt, innerbottommargin=20pt, %
+backgroundcolor=babyblue!20}
+
+\title{PDE Lecture Note}
 \author{Alex Chen}
 \date{\today}
-% I'm personally happy with this layout for now
-\geometry{left = 3.0cm, right = 3.0cm, top = 3.0cm, bottom = 3.0cm}
 
 \begin{document}
 
