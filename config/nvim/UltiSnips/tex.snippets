@@ -95,8 +95,17 @@ snippet cp "complement" iA
 ^{c}
 endsnippet
 
+context "math()"
+snippet ii "interior" i
+^{\circ}
+endsnippet
+
 
 # special symbols
+
+snippet ce "celsius" i
+$^{\circ}{\rm C}$
+endsnippet
 
 context "math()"
 snippet vee "Vee" i
@@ -204,6 +213,11 @@ endsnippet
 
 snippet pa "Partial Derivative" i
 \frac{\partial $1}{\partial $2} $0
+endsnippet
+
+context "math()"
+snippet di "upright d" i
+\text{d}
 endsnippet
 
 
@@ -320,11 +334,11 @@ snippet "tilde" "tilde" riA
 \tilde{$1}$0
 endsnippet
 
-context "math()"
-priority 100
-snippet "([a-zA-Z])hat" "hat" riA
-\hat{`!p snip.rv=match.group(1)`}
-endsnippet
+#context "math()"
+#priority 100
+#snippet "([a-zA-Z])hat" "hat" riA
+#\hat{`!p snip.rv=match.group(1)`}
+#endsnippet
 
 context "math()"
 priority 100

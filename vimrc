@@ -37,6 +37,7 @@ Plugin 'tpope/vim-repeat'
 Plugin 'godlygeek/tabular'
 Plugin 'plasticboy/vim-markdown'
 Plugin 'majutsushi/tagbar'
+Plugin 'tek256/simple-dark'
 " All of your Plugins must be added before the following line
 
 call vundle#end()            " required
@@ -70,13 +71,15 @@ set smartcase
 nmap Q <Nop>
 
 " colorscheme / statusline
-colorscheme arcadia
+colorscheme simple-dark
+"colorscheme arcadia
 "colorscheme quantum
 "colorscheme molokai
 "colorscheme wombat
 "colorscheme Tomorrow-Night
 "let g:airline_theme='powerlineish'
-let g:airline_theme='hybrid'
+"let g:airline_theme='hybrid'
+let g:airline_theme='base16_grayscale'
 "let g:airline_theme='molokai'
 "let g:airline_theme='wombat'
 "let g:airline_theme='tomorrow'
