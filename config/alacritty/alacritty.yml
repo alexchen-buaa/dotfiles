@@ -85,7 +85,7 @@ colors:
         normal:
                 black: '#252525'
                 red: '#FF0000'
-                green: '#585858'
+                green: '#8A8A8A'
                 yellow: '#8A8A8A'
                 blue: '#585858'
                 magenta: '#8A8A8A'
@@ -96,7 +96,7 @@ colors:
         bright:
                 black: '#252525'
                 red: '#FF0000'
-                green: '#585858'
+                green: '#8A8A8A'
                 yellow: '#8A8A8A'
                 blue: '#585858'
                 magenta: '#8A8A8A'
