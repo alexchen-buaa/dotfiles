@@ -161,6 +161,10 @@ let g:tmux_navigator_disable_when_zoomed = 1
 
 " fzf plugin
 set rtp+=/usr/local/opt/fzf
+" file search
+nnoremap <silent> <C-f> :Files<CR>
+" in-file search
+nnoremap <silent> <Leader>f :Rg<CR>
 
 " tagbar binding
 " if tagbar's not working, do brew install ctags-exuberant

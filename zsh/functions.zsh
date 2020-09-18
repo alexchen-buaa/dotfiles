@@ -40,3 +40,34 @@ rea(){
 	conda deactivate
 	conda activate base
 }
+
+# I adopted this from Sidney Liebrand's dotfiles
+bip(){
+	local inst=$(brew search | eval "fzf ${FZF_DEFAULT_OPTS} -m --header='[brew:install]'")
+
+	if [[ $inst ]]; then
+	  for prog in $(echo $inst)
+	  do brew install $prog
+	  done
+	fi
+}
+
+bup(){
+	local upd=$(brew leaves | eval "fzf ${FZF_DEFAULT_OPTS} -m --header='[brew:update]'")
+
+	if [[ $upd ]]; then
+	  for prog in $(echo $upd)
+	  do brew upgrade $prog
+	  done
+	fi
+}
+
+bcp(){
+	local uninst=$(brew leaves | eval "fzf ${FZF_DEFAULT_OPTS} -m --header='[brew:clean]'")
+
+	if [[ $uninst ]]; then
+	  for prog in $(echo $uninst)
+	  do brew uninstall $prog
+	  done
+	fi
+}

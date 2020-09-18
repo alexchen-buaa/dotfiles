@@ -33,4 +33,9 @@ export LANG='en_US.UTF-8'
 # tp installation
 export TP_INSTALL='/Users/alexchen/toolbox/tp'
 
-# pkg-config path
+# fzf config
+if type rg &> /dev/null; then
+  export FZF_DEFAULT_COMMAND='rg --files'
+  export FZF_DEFAULT_OPTS='-m --height 50% --border'
+fi
+export FZF_CTRL_R_OPTS='--sort --exact'
