@@ -71,3 +71,7 @@ bcp(){
 	  done
 	fi
 }
+
+op(){
+	open $(fd --hidden -t f | fzf) 2> /dev/null
+}
