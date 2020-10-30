@@ -124,7 +124,10 @@ call deoplete#custom#option('omni_patterns', { 'go': '[^. *\t]\.\w*' })
 " ale
 let g:ale_linters = {
 	\ 'go': ['gopls'],
+	\ 'python': ['flake8'],
 	\}
+nmap <silent> <Leader>k <Plug>(ale_previous_wrap)
+nmap <silent> <Leader>j <Plug>(ale_next_wrap)
 
 " I suppose the completion plugins are pretty much connected
 " so some of them might get mixed
@@ -133,6 +136,7 @@ let g:ale_linters = {
 filetype plugin on
 let g:instant_markdown_allow_unsafe_content = 1
 let g:instant_markdown_mathjax = 1
+let g:instant_markdown_autostart = 0
 
 " vim-markdown
 "let g:vim_markdown_folding_level = 2

@@ -75,3 +75,11 @@ bcp(){
 op(){
 	open $(fd --hidden -t f | fzf) 2> /dev/null
 }
+
+tp(){
+	cd $(fd --hidden -t d . $HOME | fzf)
+}
+
+tt(){
+	cd $(fd --hidden -t d . . | fzf)
+}

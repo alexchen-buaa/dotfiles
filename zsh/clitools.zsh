@@ -14,7 +14,8 @@ export PATH="/Users/alexchen/ffmpeg/bin:$PATH"
 source ~/toolbox/lever/lever.zsh
 
 # tp
-source ~/toolbox/tp/tp.zsh
+# deprecated clitool
+#source ~/toolbox/tp/tp.zsh
 
 # fzf
 [ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
