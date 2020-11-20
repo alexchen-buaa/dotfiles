@@ -83,3 +83,7 @@ tp(){
 tt(){
 	cd $(fd --hidden -t d . . | fzf)
 }
+
+lib(){
+	ranger ~/local/classroom/library
+}
