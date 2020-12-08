@@ -185,8 +185,18 @@ snippet pr "Prime" i
 endsnippet
 
 context "math()"
-snippet inn "Contained In" i
+snippet in "Contained In" iA
 \in
+endsnippet
+
+context "math()"
+snippet leq "less than or equal to" iA
+\leq
+endsnippet
+
+context "math()"
+snippet geq "greater than or equal to" iA
+\geq
 endsnippet
 
 context "math()"
@@ -362,11 +372,15 @@ snippet "([a-zA-Z]+)bh" "postfix backslash" riA
 \\`!p snip.rv=match.group(1)`
 endsnippet
 
+#context "math()"
+#snippet "(\\?\w+)(,\.|\.,)" "Vector postfix" riA
+#\vec{`!p snip.rv=match.group(1)`}
+#endsnippet
+
 context "math()"
 snippet "(\\?\w+)(,\.|\.,)" "Vector postfix" riA
-\vec{`!p snip.rv=match.group(1)`}
+\boldsymbol{`!p snip.rv=match.group(1)`}
 endsnippet
-
 
 # thm envs
 snippet thm "theorem" i
@@ -568,4 +582,20 @@ endsnippet
 
 snippet kk "Real Curly Brackets" i
 {$1}$0
+endsnippet
+
+snippet gen "generate" i
+\langle $1\rangle$0
+endsnippet
+
+snippet mini "minimize" i
+\[
+\begin{aligned}
+	&\text{minimize}\quad $1 \\\\
+	&\text{subject to}\quad 
+		\begin{aligned}
+			$2
+		\end{aligned}
+\end{aligned}
+\]. $0
 endsnippet

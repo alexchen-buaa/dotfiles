@@ -44,3 +44,5 @@
                 path: zsh
         ~/.itermcolors:
                 path: itermcolors
+        ~/.emacs:
+                path: emacs

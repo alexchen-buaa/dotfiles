@@ -85,5 +85,13 @@ tt(){
 }
 
 lib(){
-	ranger ~/local/classroom/library
+	if [[ "${1}" == "" ]]; then
+		ranger ~/local/classroom/library
+	elif [[ "${1}" == "-s" ]]; then
+		open $(fd ".pdf" ~/local/classroom/library | fzf)
+	fi
+}
+
+sem(){
+	ranger ~/local/classroom/autumn2020
 }
