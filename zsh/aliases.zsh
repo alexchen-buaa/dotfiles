@@ -4,6 +4,7 @@ alias la='exa -a'
 alias ll='exa -lha'
 alias home='cd ~'
 alias vi='nvim'
+alias em='emacs -nw'
 alias zz='zathura'
 
 # aliases for preventing overwriting

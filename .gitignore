@@ -3,3 +3,4 @@ config/yarn/
 *.pyc
 *.swp
 config/configstore/
+*~

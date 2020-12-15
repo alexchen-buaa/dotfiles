@@ -38,6 +38,7 @@ Plugin 'godlygeek/tabular'
 Plugin 'plasticboy/vim-markdown'
 Plugin 'majutsushi/tagbar'
 Plugin 'tek256/simple-dark'
+Plugin 'jceb/vim-orgmode'
 " All of your Plugins must be added before the following line
 
 call vundle#end()            " required

@@ -95,3 +95,7 @@ lib(){
 sem(){
 	ranger ~/local/classroom/autumn2020
 }
+
+down(){
+	ranger ~/Downloads
+}
