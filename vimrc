@@ -39,6 +39,7 @@ Plugin 'plasticboy/vim-markdown'
 Plugin 'majutsushi/tagbar'
 Plugin 'tek256/simple-dark'
 Plugin 'jceb/vim-orgmode'
+Plugin 'AjxLab/laserwave.vim'
 " All of your Plugins must be added before the following line
 
 call vundle#end()            " required
