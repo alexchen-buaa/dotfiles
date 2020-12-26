@@ -318,8 +318,6 @@
  '(package-selected-packages
    '(company-anaconda anaconda-mode company-auctex auctex vterm yasnippet-snippets flycheck evil-nerd-commenter linum-relative evil-collection magit evil-leader all-the-icons-ivy-rich all-the-icons-ivy counsel ivy company tron-legacy-theme doom-themes all-the-icons tao-theme evil-visual-mark-mode eziam-theme evil))
  '(pdf-view-midnight-colors (cons "#c5c8c6" "#1d1f21"))
- '(rustic-ansi-faces
-   ["#1d1f21" "#cc6666" "#b5bd68" "#f0c674" "#81a2be" "#c9b4cf" "#8abeb7" "#c5c8c6"])
  '(vc-annotate-background "#1d1f21")
  '(vc-annotate-color-map
    (list
@@ -341,7 +339,8 @@
     (cons 320 "#765d5d")
     (cons 340 "#5c5e5e")
     (cons 360 "#5c5e5e")))
- '(vc-annotate-very-old-color nil))
+'(vc-annotate-very-old-color nil)
+)
 (custom-set-faces
  ;; custom-set-faces was added by Custom.
  ;; If you edit it by hand, you could mess it up, so be careful.
