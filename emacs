@@ -136,9 +136,7 @@
   (setq doom-themes-enable-italic t)
   (doom-themes-org-config))
 (use-package tron-legacy-theme
-  :ensure t
-  :config
-  (load-theme 'tron-legacy t))
+  :ensure t)
 (use-package all-the-icons
   :ensure t
   :config
@@ -147,6 +145,7 @@
   :ensure t
   :init
   (doom-modeline-mode 1))
+(load-theme 'doom-plain t)
 
 ;;; editing features (navigation, completion...)
 
@@ -236,6 +235,7 @@
 ;; other things goes either into someday or upnext
 (use-package org
   :config
+  (setq org-hide-leading-stars t)
   (global-set-key (kbd "C-c c") 'org-capture)
   (global-set-key (kbd "C-c C-w") 'org-refile)
   (global-set-key (kbd "C-c a") 'org-agenda)
@@ -263,15 +263,49 @@
  ;; If you edit it by hand, you could mess it up, so be careful.
  ;; Your init file should contain only one such instance.
  ;; If there is more than one, they won't work right.
+ '(ansi-color-faces-vector
+   [default default default italic underline success warning error])
+ '(ansi-color-names-vector
+   ["#242424" "#e5786d" "#95e454" "#cae682" "#8ac6f2" "#333366" "#ccaa8f" "#f6f3e8"])
  '(custom-safe-themes
-   '("e6df46d5085fde0ad56a46ef69ebb388193080cc9819e2d6024c9c6e27388ba9" "711efe8b1233f2cf52f338fd7f15ce11c836d0b6240a18fffffc2cbd5bfe61b0" "d4131a682c4436bb5a61103d9a850bf788cbf793f3fd8897de520d20583aeb58" "6c3b5f4391572c4176908bb30eddc1718344b8eaff50e162e36f271f6de015ca" "6084dce7da6b7447dcb9f93a981284dc823bab54f801ebf8a8e362a5332d2753" "d6603a129c32b716b3d3541fc0b6bfe83d0e07f1954ee64517aa62c9405a3441" "be9645aaa8c11f76a10bcf36aaf83f54f4587ced1b9b679b55639c87404e2499" "e6ff132edb1bfa0645e2ba032c44ce94a3bd3c15e3929cdf6c049802cf059a2a" "dbade2e946597b9cda3e61978b5fcc14fa3afa2d3c4391d477bdaeff8f5638c5" default))
+   '("d74c5485d42ca4b7f3092e50db687600d0e16006d8fa335c69cf4f379dbd0eee" "5b809c3eae60da2af8a8cfba4e9e04b4d608cb49584cb5998f6e4a1c87c057c4" "3df5335c36b40e417fec0392532c1b82b79114a05d5ade62cfe3de63a59bc5c6" "7d708f0168f54b90fc91692811263c995bebb9f68b8b7525d0e2200da9bc903c" "01cf34eca93938925143f402c2e6141f03abb341f27d1c2dba3d50af9357ce70" "188fed85e53a774ae62e09ec95d58bb8f54932b3fd77223101d036e3564f9206" "71e5acf6053215f553036482f3340a5445aee364fb2e292c70d9175fb0cc8af7" "08a27c4cde8fcbb2869d71fdc9fa47ab7e4d31c27d40d59bf05729c4640ce834" "e72f5955ec6d8585b8ddb2accc2a4cb78d28629483ef3dcfee00ef3745e2292f" "6b80b5b0762a814c62ce858e9d72745a05dd5fc66f821a1c5023b4f2a76bc910" "e6df46d5085fde0ad56a46ef69ebb388193080cc9819e2d6024c9c6e27388ba9" "711efe8b1233f2cf52f338fd7f15ce11c836d0b6240a18fffffc2cbd5bfe61b0" "d4131a682c4436bb5a61103d9a850bf788cbf793f3fd8897de520d20583aeb58" "6c3b5f4391572c4176908bb30eddc1718344b8eaff50e162e36f271f6de015ca" "6084dce7da6b7447dcb9f93a981284dc823bab54f801ebf8a8e362a5332d2753" "d6603a129c32b716b3d3541fc0b6bfe83d0e07f1954ee64517aa62c9405a3441" "be9645aaa8c11f76a10bcf36aaf83f54f4587ced1b9b679b55639c87404e2499" "e6ff132edb1bfa0645e2ba032c44ce94a3bd3c15e3929cdf6c049802cf059a2a" "dbade2e946597b9cda3e61978b5fcc14fa3afa2d3c4391d477bdaeff8f5638c5" default))
+ '(fci-rule-color "#4C4A4D")
  '(helm-ag-base-command "rg --no-heading")
  '(helm-ag-success-exit-status '(0 2))
  '(helm-completion-style 'emacs)
  '(helm-minibuffer-history-key "M-p")
  '(helm-mode t)
+ '(jdee-db-active-breakpoint-face-colors (cons "#19181A" "#FCFCFA"))
+ '(jdee-db-requested-breakpoint-face-colors (cons "#19181A" "#A9DC76"))
+ '(jdee-db-spec-breakpoint-face-colors (cons "#19181A" "#727072"))
+ '(objed-cursor-color "#CC6666")
  '(package-selected-packages
-   '(company-anaconda anaconda-mode company-auctex auctex vterm yasnippet-snippets flycheck evil-nerd-commenter linum-relative evil-collection magit evil-leader all-the-icons-ivy-rich all-the-icons-ivy counsel ivy company tron-legacy-theme doom-themes all-the-icons tao-theme evil-visual-mark-mode eziam-theme evil)))
+   '(company-anaconda anaconda-mode company-auctex auctex vterm yasnippet-snippets flycheck evil-nerd-commenter linum-relative evil-collection magit evil-leader all-the-icons-ivy-rich all-the-icons-ivy counsel ivy company tron-legacy-theme doom-themes all-the-icons tao-theme evil-visual-mark-mode eziam-theme evil))
+ '(pdf-view-midnight-colors (cons "#FCFCFA" "#2D2A2E"))
+ '(rustic-ansi-faces
+   ["#2D2A2E" "#CC6666" "#A9DC76" "#FFD866" "#78DCE8" "#FF6188" "#78DCE8" "#FCFCFA"])
+ '(vc-annotate-background "#2D2A2E")
+ '(vc-annotate-color-map
+   (list
+    (cons 20 "#A9DC76")
+    (cons 40 "#c5da70")
+    (cons 60 "#e2d96b")
+    (cons 80 "#FFD866")
+    (cons 100 "#fec266")
+    (cons 120 "#fdad66")
+    (cons 140 "#FC9867")
+    (cons 160 "#fd8572")
+    (cons 180 "#fe737d")
+    (cons 200 "#FF6188")
+    (cons 220 "#ee627c")
+    (cons 240 "#dd6471")
+    (cons 260 "#CC6666")
+    (cons 280 "#b56869")
+    (cons 300 "#9f6b6c")
+    (cons 320 "#886d6f")
+    (cons 340 "#4C4A4D")
+    (cons 360 "#4C4A4D")))
+ '(vc-annotate-very-old-color nil))
 (custom-set-faces
  ;; custom-set-faces was added by Custom.
  ;; If you edit it by hand, you could mess it up, so be careful.

@@ -39,6 +39,7 @@ Plugin 'plasticboy/vim-markdown'
 Plugin 'majutsushi/tagbar'
 Plugin 'tek256/simple-dark'
 Plugin 'jceb/vim-orgmode'
+Plugin 'AjxLab/laserwave.vim'
 " All of your Plugins must be added before the following line
 
 call vundle#end()            " required
@@ -78,6 +79,7 @@ colorscheme simple-dark
 "colorscheme molokai
 "colorscheme wombat
 "colorscheme Tomorrow-Night
+"let g:airline_theme='hybrid'
 "let g:airline_theme='powerlineish'
 "let g:airline_theme='hybrid'
 let g:airline_theme='base16_grayscale'
