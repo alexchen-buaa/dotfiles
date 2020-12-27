@@ -255,10 +255,14 @@
   (setq org-agenda-files '("~/local/org/upnext.org"
 			   "~/local/org/schedule.org"))
   (setq org-refile-targets '(("~/local/org/upnext.org" :maxlevel . 3)
+			     ("~/local/org/inbox.org" :maxlevel . 3)
 			     ("~/local/org/project.org" :maxlevel . 3)
 			     ("~/local/org/schedule.org" :maxlevel . 2)
 			     ("~/local/org/someday.org" :level . 1)))
-  (setq org-tag-alist '(("study" . ?s)
+  (setq org-tag-alist '(("casual" . ?c)
+			("serious" . ?s)
+			("requested" . ?r)
+			("scheduled" . ?S)
 			("life" . ?l))))
 
 (custom-set-variables
