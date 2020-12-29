@@ -26,9 +26,10 @@
 ;; add PATH
 ;; (emacs is like a terminal on it's own,
 ;; additional PATHs should be informed by the user)
-(setenv "PATH" (concat (getenv "PATH") ":/usr/local/bin:/Users/alexchen/anaconda3/bin"))
+(setenv "PATH" (concat (getenv "PATH") ":/usr/local/bin:/Users/alexchen/anaconda3/bin:/Library/TeX/texbin"))
 (setq exec-path (append exec-path '("/usr/local/bin")))
 (setq exec-path (append exec-path '("/Users/alexchen/anaconda3/bin")))
+(setq exec-path (append exec-path '("/Library/TeX/texbin")))
 
 ;;; package manager (package and use-package)
 
@@ -188,6 +189,13 @@
 (use-package yasnippet-snippets
   :ensure t)
 
+;; undo-tree
+(use-package undo-tree
+  :ensure t
+  :config
+  (global-undo-tree-mode)
+  (evil-set-undo-system 'undo-tree)) ; configure it like this
+
 ;;; integration (with other tools and languages)
 
 
@@ -210,6 +218,78 @@
 ;; AUCTeX (TeX integration)
 ;; it seems like the package hates use-package (
 ;; but I guess a few other related packages works
+
+;; add xelatex support, the auctex config is slightly different
+;; from the built-in latex-mode setup
+(setq TeX-command-list
+      '(("XeLaTeX" "xelatex -interaction nonstopmode %t" TeX-run-TeX nil
+	 (latex-mode doctex-mode)
+	 :help "Run XeLaTeX")
+	("TeX" "%(PDF)%(tex) %(file-line-error) %`%(extraopts) %S%(PDFout)%(mode)%' %t" TeX-run-TeX nil
+	 (plain-tex-mode ams-tex-mode texinfo-mode)
+	 :help "Run plain TeX")
+	("LaTeX" "xelatex -interaction nonstopmode %t" TeX-run-TeX nil
+	 (latex-mode doctex-mode)
+	 :help "Run LaTeX")
+	("Makeinfo" "makeinfo %(extraopts) %t" TeX-run-compile nil
+	 (texinfo-mode)
+	 :help "Run Makeinfo with Info output")
+	("Makeinfo HTML" "makeinfo %(extraopts) --html %t" TeX-run-compile nil
+	 (texinfo-mode)
+	 :help "Run Makeinfo with HTML output")
+	("AmSTeX" "amstex %(PDFout) %`%(extraopts) %S%(mode)%' %t" TeX-run-TeX nil
+	 (ams-tex-mode)
+	 :help "Run AMSTeX")
+	("ConTeXt" "%(cntxcom) --once --texutil %(extraopts) %(execopts)%t" TeX-run-TeX nil
+	 (context-mode)
+	 :help "Run ConTeXt once")
+	("ConTeXt Full" "%(cntxcom) %(extraopts) %(execopts)%t" TeX-run-TeX nil
+	 (context-mode)
+	 :help "Run ConTeXt until completion")
+	("BibTeX" "bibtex %s" TeX-run-BibTeX nil
+	 (plain-tex-mode latex-mode doctex-mode ams-tex-mode texinfo-mode context-mode)
+	 :help "Run BibTeX")
+	("Biber" "biber %s" TeX-run-Biber nil
+	 (plain-tex-mode latex-mode doctex-mode ams-tex-mode texinfo-mode)
+	 :help "Run Biber")
+	("View" "%V" TeX-run-discard-or-function t t :help "Run Viewer")
+	("Print" "%p" TeX-run-command t t :help "Print the file")
+	("Queue" "%q" TeX-run-background nil t :help "View the printer queue" :visible TeX-queue-command)
+	("File" "%(o?)dvips %d -o %f " TeX-run-dvips t
+	 (plain-tex-mode latex-mode doctex-mode ams-tex-mode texinfo-mode)
+	 :help "Generate PostScript file")
+	("Dvips" "%(o?)dvips %d -o %f " TeX-run-dvips nil
+	 (plain-tex-mode latex-mode doctex-mode ams-tex-mode texinfo-mode)
+	 :help "Convert DVI file to PostScript")
+	("Dvipdfmx" "dvipdfmx %d" TeX-run-dvipdfmx nil
+	 (plain-tex-mode latex-mode doctex-mode ams-tex-mode texinfo-mode)
+	 :help "Convert DVI file to PDF with dvipdfmx")
+	("Ps2pdf" "ps2pdf %f" TeX-run-ps2pdf nil
+	 (plain-tex-mode latex-mode doctex-mode ams-tex-mode texinfo-mode)
+	 :help "Convert PostScript file to PDF")
+	("Glossaries" "makeglossaries %s" TeX-run-command nil
+	 (plain-tex-mode latex-mode doctex-mode ams-tex-mode texinfo-mode)
+	 :help "Run makeglossaries to create glossary
+	file")
+	("Index" "makeindex %s" TeX-run-index nil
+	 (plain-tex-mode latex-mode doctex-mode ams-tex-mode texinfo-mode)
+	 :help "Run makeindex to create index file")
+	("upMendex" "upmendex %s" TeX-run-index t
+	 (plain-tex-mode latex-mode doctex-mode ams-tex-mode texinfo-mode)
+	 :help "Run upmendex to create index file")
+	("Xindy" "texindy %s" TeX-run-command nil
+	 (plain-tex-mode latex-mode doctex-mode ams-tex-mode texinfo-mode)
+	 :help "Run xindy to create index file")
+	("Check" "lacheck %s" TeX-run-compile nil
+	 (latex-mode)
+	 :help "Check LaTeX file for correctness")
+	("ChkTeX" "chktex -v6 %s" TeX-run-compile nil
+	 (latex-mode)
+	 :help "Check LaTeX file for common mistakes")
+	("Spell" "(TeX-ispell-document \"\")" TeX-run-function nil t :help "Spell-check the document")
+	("Clean" "TeX-clean" TeX-run-function nil t :help "Delete generated intermediate files")
+	("Clean All" "(TeX-clean t)" TeX-run-function nil t :help "Delete generated intermediate and output files")
+	("Other" "" TeX-run-command t t :help "Run an arbitrary command")))
 (use-package company-auctex
   :ensure t)
 
@@ -291,7 +371,7 @@
    '("#CC9393" "#DFAF8F" "#F0DFAF" "#7F9F7F" "#BFEBBF" "#93E0E3" "#94BFF3" "#DC8CC3"))
  '(objed-cursor-color "#cc6666")
  '(package-selected-packages
-   '(company-anaconda anaconda-mode company-auctex auctex vterm yasnippet-snippets flycheck evil-nerd-commenter linum-relative evil-collection magit evil-leader all-the-icons-ivy-rich all-the-icons-ivy counsel ivy company tron-legacy-theme doom-themes all-the-icons tao-theme evil-visual-mark-mode eziam-theme evil))
+   '(undo-tree company-anaconda anaconda-mode company-auctex auctex vterm yasnippet-snippets flycheck evil-nerd-commenter linum-relative evil-collection magit evil-leader all-the-icons-ivy-rich all-the-icons-ivy counsel ivy company tron-legacy-theme doom-themes all-the-icons tao-theme evil-visual-mark-mode eziam-theme evil))
  '(pdf-view-midnight-colors (cons "#c5c8c6" "#1d1f21"))
  '(rustic-ansi-faces
    ["#1d1f21" "#cc6666" "#b5bd68" "#f0c674" "#81a2be" "#c9b4cf" "#8abeb7" "#c5c8c6"])
