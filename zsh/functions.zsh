@@ -93,7 +93,7 @@ lib(){
 }
 
 sem(){
-	ranger ~/local/classroom/autumn2020
+	ranger ~/local/classroom/summer2021
 }
 
 down(){

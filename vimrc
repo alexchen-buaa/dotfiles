@@ -1,4 +1,6 @@
-" Vundle part
+" ===============
+"   Vundle part
+" ===============
 set nocompatible              " be iMproved, required
 filetype off                  " required
 
@@ -48,6 +50,10 @@ filetype plugin indent on    " required
 "filetype plugin on
 "put your none plugin stuff after this line 
 
+" ==========
+"   basics
+" ==========
+
 " coloring
 set termguicolors
 
@@ -72,24 +78,36 @@ set smartcase
 " 'Q' in normal mode enters Ex mode. You almost never want this.
 nmap Q <Nop>
 
+" access system clipboard (through pbcopy/pbpaste)
+noremap <Leader>y "*y
+noremap <Leader>p "*p
+noremap <Leader>Y "+p
+noremap <Leader>P "+p
+
+" ===================
+"   various plugins
+" ===================
+
 " colorscheme / statusline
-colorscheme simple-dark
+"colorscheme simple-dark
 "colorscheme arcadia
 "colorscheme quantum
 "colorscheme molokai
 "colorscheme wombat
-"colorscheme Tomorrow-Night
+colorscheme Tomorrow-Night
 "let g:airline_theme='hybrid'
 "let g:airline_theme='powerlineish'
 "let g:airline_theme='hybrid'
-let g:airline_theme='base16_grayscale'
+"let g:airline_theme='base16_grayscale'
 "let g:airline_theme='molokai'
 "let g:airline_theme='wombat'
-"let g:airline_theme='tomorrow'
+let g:airline_theme='tomorrow'
 "let g:airline_theme='base16_grayscale'
-let g:airline_powerline_fonts = 1
+"let g:airline_powerline_fonts = 1
+let g:airline_powerline_fonts = 0
 let g:airline#extensions#tabline#enabled = 1
 let g:airline#extensions#ale#enabled = 1
+let g:tmuxline_powerline_separators = 0
 
 " so you don't have to reach for <Esc>
 inoremap <C-[> <Esc>
@@ -129,6 +147,7 @@ let g:ale_linters = {
 	\ 'go': ['gopls'],
 	\ 'python': ['flake8'],
 	\}
+" jump between errors
 nmap <silent> <Leader>k <Plug>(ale_previous_wrap)
 nmap <silent> <Leader>j <Plug>(ale_next_wrap)
 

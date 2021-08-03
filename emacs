@@ -22,7 +22,7 @@
 (global-display-line-numbers-mode)
 ;; default font, window size
 (add-to-list 'default-frame-alist
-	     '(font . "PragmataPro-14"))
+	     '(font . "Monaco-14"))
 ;; add PATH
 ;; (emacs is like a terminal on it's own,
 ;; additional PATHs should be informed by the user)
@@ -79,8 +79,12 @@
 (use-package evil
   :ensure t
   :init (setq evil-want-keybinding nil)
-  :bind (:map evil-normal-state-map
-	      ("C-t" . vterm))
+  :bind ((:map evil-normal-state-map
+	       ("C-t" . vterm))
+	 (:map evil-normal-state-map
+	       ("C-n" . neotree-toggle))
+	 (:map evil-normal-state-map
+	       ("TAB" . org-cycle)))
   :config (evil-mode 1))
 (use-package evil-collection ; evil bindings everywhere
   :after evil
@@ -118,6 +122,16 @@
   :ensure t
   :init (ivy-rich-mode 1))
 
+;; neotree for dir navigation
+(use-package neotree
+  :ensure t)
+
+;; navigate like vim-tmux-navigator
+(use-package tmux-pane
+  :ensure t
+  :config
+  (tmux-pane-mode))
+
 ;; linum-relative
 (use-package linum-relative
   :ensure t
@@ -146,7 +160,7 @@
   :ensure t
   :init
   (doom-modeline-mode 1))
-(load-theme 'doom-plain t)
+(load-theme 'doom-tomorrow-night t)
 
 ;;; editing features (navigation, completion...)
 
@@ -213,6 +227,9 @@
   :ensure t
   :init (add-hook 'python-mode-hook 'anaconda-mode))
 (use-package company-anaconda
+  :ensure t)
+;; emacs ipython notebook (ein)
+(use-package ein
   :ensure t)
 
 ;; AUCTeX (TeX integration)
@@ -321,7 +338,7 @@
   (global-set-key (kbd "C-c a") 'org-agenda)
   (setq org-todo-keywords '((sequence "TODO(t)" "WAITING(w)" "|" "DONE(d)" "CANCELLED(c)")))
   (setq org-capture-templates '(("t" "Todo [inbox]" entry
-				 (file+headline "~/local/org/inbox.org" "Tasks")
+				 (file+headline "~/local/org/inbox.org" "Inbox")
 				 "* TODO %i%?")
 				("u" "Todo [upnext]" entry
 				 (file+headline "~/local/org/upnext.org" "Upnext")
@@ -371,7 +388,7 @@
    '("#CC9393" "#DFAF8F" "#F0DFAF" "#7F9F7F" "#BFEBBF" "#93E0E3" "#94BFF3" "#DC8CC3"))
  '(objed-cursor-color "#cc6666")
  '(package-selected-packages
-   '(undo-tree company-anaconda anaconda-mode company-auctex auctex vterm yasnippet-snippets flycheck evil-nerd-commenter linum-relative evil-collection magit evil-leader all-the-icons-ivy-rich all-the-icons-ivy counsel ivy company tron-legacy-theme doom-themes all-the-icons tao-theme evil-visual-mark-mode eziam-theme evil))
+   '(tmux-pane neotree ein undo-tree company-anaconda anaconda-mode company-auctex auctex vterm yasnippet-snippets flycheck evil-nerd-commenter linum-relative evil-collection magit evil-leader all-the-icons-ivy-rich all-the-icons-ivy counsel ivy company tron-legacy-theme doom-themes all-the-icons tao-theme evil-visual-mark-mode eziam-theme evil))
  '(pdf-view-midnight-colors (cons "#c5c8c6" "#1d1f21"))
  '(rustic-ansi-faces
    ["#1d1f21" "#cc6666" "#b5bd68" "#f0c674" "#81a2be" "#c9b4cf" "#8abeb7" "#c5c8c6"])
