@@ -52,7 +52,7 @@
 ;; **CAUTION**
 ;; these are the major keywords used in use-package:
 ;; :init <code to be executed before loading the package>
-;; :config <code to be executed before loading the package>
+;; :config <code to be executed after loading the package>
 ;; :bind <key bindings for this package>
 ;; of course you can use global-set-key, like:
 ;; (global-set-key (kbd "M-x") 'helm-M-x)
@@ -331,7 +331,12 @@
 ;; single-stage tasks are refiled into schedule
 ;; other things goes either into someday or upnext
 (use-package org
+  :bind (:map org-mode-map
+	      ("C-j" . nil)
+	      ("C-k" . nil))
   :config
+  (unbind-key "C-j" org-mode-map)
+  (unbind-key "C-k" org-mode-map)
   (setq org-hide-leading-stars t)
   (global-set-key (kbd "C-c c") 'org-capture)
   (global-set-key (kbd "C-c C-w") 'org-refile)
@@ -360,7 +365,8 @@
 			("serious" . ?s)
 			("requested" . ?r)
 			("scheduled" . ?S)
-			("life" . ?l))))
+			("life" . ?l)))
+  )
 
 (custom-set-variables
  ;; custom-set-variables was added by Custom.

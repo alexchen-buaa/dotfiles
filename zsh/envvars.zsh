@@ -24,7 +24,7 @@ export SDKROOT=$(xcrun --sdk macosx --show-sdk-path)
 export PYTHONSTARTUP=~/.pythonrc
 
 # editor
-export EDITOR=nvim
+export EDITOR=/usr/local/bin/nvim
 
 # locale
 export LC_CTYPE='zh_CN.UTF-8'

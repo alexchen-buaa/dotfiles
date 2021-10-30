@@ -46,3 +46,5 @@
                 path: itermcolors
         ~/.emacs:
                 path: emacs
+        ~/.flake8:
+                path: flake8

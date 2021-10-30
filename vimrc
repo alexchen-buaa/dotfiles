@@ -147,6 +147,8 @@ let g:ale_linters = {
 	\ 'go': ['gopls'],
 	\ 'python': ['flake8'],
 	\}
+" flake8 config
+let g:syntastic_python_flake8_config_file='.flake8'
 " jump between errors
 nmap <silent> <Leader>k <Plug>(ale_previous_wrap)
 nmap <silent> <Leader>j <Plug>(ale_next_wrap)
@@ -180,6 +182,15 @@ au BufNewFile,BufRead *.py set expandtab
 au BufNewFile,BufRead *.py set autoindent
 au BufNewFile,BufRead *.py set smartindent
 au BufNewFile,BufRead *.py set fileformat=unix
+
+" c/c++ settings
+au BufNewFile,BufRead *.c,*.cpp set tabstop=4
+au BufNewFile,BufRead *.c,*.cpp set softtabstop=4
+au BufNewFile,BufRead *.c,*.cpp set shiftwidth=4
+au BufNewFile,BufRead *.c,*.cpp set expandtab
+au BufNewFile,BufRead *.c,*.cpp set autoindent
+au BufNewFile,BufRead *.c,*.cpp set smartindent
+au BufNewFile,BufRead *.c,*.cpp set fileformat=unix
 
 " vim-tmux-navigator
 " Disable tmux navigator when zooming the Vim pane

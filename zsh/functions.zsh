@@ -86,14 +86,14 @@ tt(){
 
 lib(){
 	if [[ "${1}" == "" ]]; then
-		ranger ~/local/classroom/library
+		ranger ~/local/library
 	elif [[ "${1}" == "-s" ]]; then
-		open $(fd ".pdf" ~/local/classroom/library | fzf)
+		open $(fd ".pdf" ~/local/library | fzf)
 	fi
 }
 
 sem(){
-	ranger ~/local/classroom/summer2021
+	ranger ~/local/classroom/autumn2021
 }
 
 down(){
