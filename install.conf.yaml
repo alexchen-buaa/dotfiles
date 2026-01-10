@@ -15,36 +15,29 @@
                 path: zshrc
         ~/.bash_profile:
                 path: bash_profile
+        ~/.vimrc:
+                path: vimrc
         ~/.condarc:
                 path: condarc
-        ~/.config:
-                glob: true
-                path: config/*
-                force: true
-                relink: true
         ~/.gitconfig:
                 path: gitconfig
         ~/.inputrc:
                 path: inputrc
         ~/.npmrc:
                 path: npmrc
-        ~/.pythonrc:
-                path: pythonrc
         ~/.tmux.conf:
                 path: tmux.conf
-        ~/.vimrc:
-                path: vimrc
-        ~/.yarnrc:
-                path: yarnrc
-        ~/.tmuxthemes:
-                path: tmuxthemes
-        ~/.terminalizer:
-                path: terminalizer
-        ~/.zsh:
-                path: zsh
-        ~/.itermcolors:
-                path: itermcolors
-        ~/.emacs:
-                path: emacs
-        ~/.flake8:
-                path: flake8
+        ~/.zsh_plugins.txt:
+                path: zsh_plugins.txt
+        ~/.config/tmuxthemes:
+                path: config/tmuxthemes
+        ~/.config/zsh:
+                path: config/zsh
+        ~/.config/alacritty:
+                path: config/alacritty
+        ~/.config/nvim:
+                path: config/nvim
+        ~/.config/pip:
+                path: config/pip
+        ~/.config/starship.toml:
+                path: config/starship.toml

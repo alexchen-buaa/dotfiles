@@ -1,35 +1,15 @@
-# environmental variables
-source ~/.zsh/envvars.zsh
+# Zsh Configuration
 
-# prompt
-source ~/.zsh/prompt.zsh
+# Environment and PATH
+source ~/.config/zsh/env.zsh
 
-# command-line tools
-source ~/.zsh/clitools.zsh
+# Tools, aliases, and functions
+source ~/.config/zsh/tools.zsh
 
-# aliases
-source ~/.zsh/aliases.zsh
+# Plugins and keybindings
+source ~/.config/zsh/plugins.zsh
 
-# functions
-source ~/.zsh/functions.zsh
-
-## >>> conda initialize >>>
-## !! Contents within this block are managed by 'conda init' !!
-__conda_setup="$('/Users/alexchen/anaconda3/bin/conda' 'shell.zsh' 'hook' 2> /dev/null)"
-if [ $? -eq 0 ]; then
-    eval "$__conda_setup"
-else
-    if [ -f "/Users/alexchen/anaconda3/etc/profile.d/conda.sh" ]; then
-	. "/Users/alexchen/anaconda3/etc/profile.d/conda.sh"
-    else
-	export PATH="/Users/alexchen/anaconda3/bin:$PATH"
-    fi
+# Source machine-specific secrets if the file exists
+if [[ -f "$HOME/.zshrc.local" ]]; then
+  source "$HOME/.zshrc.local"
 fi
-unset __conda_setup
-## <<< conda initialize <<<
-
-# plugins
-source ~/.zsh/plugins.zsh
-
-# reactivate conda env when starting a new session
-rea

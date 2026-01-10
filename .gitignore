@@ -1,6 +1,5 @@
-config/yarn/
 .DS_Store
 *.pyc
 *.swp
-config/configstore/
 *~
+CLAUDE.md
