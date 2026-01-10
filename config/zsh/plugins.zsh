@@ -13,8 +13,8 @@ bindkey '^[[B' history-substring-search-down
 bindkey -M vicmd 'k' history-substring-search-up
 bindkey -M vicmd 'j' history-substring-search-down
 
-# zsh-autosuggestions: accept suggestion with Ctrl-Y
-bindkey '^y' autosuggest-accept
-
-# vi-mode
+# vi-mode (must be set before custom bindings that override it)
 bindkey -v
+
+# zsh-autosuggestions: accept suggestion with Ctrl-Y
+bindkey -M viins '^Y' autosuggest-accept
