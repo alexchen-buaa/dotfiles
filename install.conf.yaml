@@ -35,6 +35,8 @@
                 path: config/zsh
         ~/.config/alacritty:
                 path: config/alacritty
+        ~/.config/ghostty:
+                path: config/ghostty
         ~/.config/nvim:
                 path: config/nvim
         ~/.config/pip:

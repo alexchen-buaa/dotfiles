@@ -1,0 +1,83 @@
+-- Git-related plugins
+return {
+  -- Vim fugitive (Git integration)
+  {
+    "tpope/vim-fugitive",
+    dependencies = { "tpope/vim-rhubarb" },
+    cmd = "Git",
+    keys = {
+      { "<leader>gs", "<cmd>botright Git | resize 16<CR>", desc = "Git status" },
+    },
+  },
+
+  -- Diff view for git (similar to git diff)
+  {
+    "sindrets/diffview.nvim",
+    dependencies = { "nvim-lua/plenary.nvim" },
+    event = "VeryLazy",
+  },
+
+  -- Buffer integration for git
+  {
+    "lewis6991/gitsigns.nvim",
+    config = function()
+      require('gitsigns').setup{
+        on_attach = function(bufnr)
+          local gitsigns = require('gitsigns')
+
+          local function map(mode, l, r, opts)
+            opts = opts or {}
+            opts.buffer = bufnr
+            vim.keymap.set(mode, l, r, opts)
+          end
+
+          -- Navigation
+          map('n', ']c', function()
+            if vim.wo.diff then
+              vim.cmd.normal({']c', bang = true})
+            else
+              gitsigns.nav_hunk('next')
+            end
+          end)
+
+          map('n', '[c', function()
+            if vim.wo.diff then
+              vim.cmd.normal({'[c', bang = true})
+            else
+              gitsigns.nav_hunk('prev')
+            end
+          end)
+
+          -- Actions
+          map('n', '<leader>hs', gitsigns.stage_hunk)
+          map('n', '<leader>hr', gitsigns.reset_hunk)
+
+          map('v', '<leader>hs', function()
+            gitsigns.stage_hunk({ vim.fn.line('.'), vim.fn.line('v') })
+          end)
+
+          map('v', '<leader>hr', function()
+            gitsigns.reset_hunk({ vim.fn.line('.'), vim.fn.line('v') })
+          end)
+
+          map('n', '<leader>hS', gitsigns.stage_buffer)
+          map('n', '<leader>hR', gitsigns.reset_buffer)
+          map('n', '<leader>hi', gitsigns.preview_hunk_inline)
+
+          map('n', '<leader>hb', function()
+            gitsigns.blame_line({ full = true })
+          end)
+
+          map('n', '<leader>hd', gitsigns.diffthis)
+
+          map('n', '<leader>hD', function()
+            gitsigns.diffthis('~')
+          end)
+
+          map('n', '<leader>hQ', function() gitsigns.setqflist('all') end)
+          map('n', '<leader>hq', gitsigns.setqflist)
+        end
+      }
+    end
+  },
+}

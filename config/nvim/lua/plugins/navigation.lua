@@ -3,26 +3,46 @@ return {
   -- File explorer
   {
     "nvim-neo-tree/neo-tree.nvim",
-    branch = "v3.x",
+    branch = "main",
     dependencies = {
       "nvim-lua/plenary.nvim",
       "nvim-tree/nvim-web-devicons",
       "MunifTanjim/nui.nvim",
     },
     keys = {
-      { "<leader>e", "<cmd>Neotree toggle<cr>", desc = "Toggle file explorer" },
+      { "<leader>e",  "<cmd>Neotree toggle<cr>",            desc = "Toggle file explorer" },
+      { "<leader>ge", "<cmd>Neotree git_status toggle<cr>", desc = "Toggle git status" },
     },
     config = function()
       require("neo-tree").setup({
         close_if_last_window = true,
         window = {
-          position = "left",
-          width = 30,
+          position = "float",
+          popup = {
+            size = {
+              height = "60%",
+              width = "60%",
+            },
+          },
+          mappings = {
+            ["/"] = "none",
+          },
         },
         filesystem = {
           filtered_items = {
             hide_dotfiles = false,
             hide_gitignored = false,
+          },
+        },
+        git_status = {
+          window = {
+            mappings = {
+              ["s"] = "git_add_file",
+              ["u"] = "git_unstage_file",
+              ["-"] = "git_toggle_file_stage",
+              ["cc"] = "git_commit",
+              ["gg"] = "none",
+            },
           },
         },
       })
@@ -42,13 +62,15 @@ return {
     },
     keys = {
       { "<leader>ff", "<cmd>Telescope find_files<cr>", desc = "Find files" },
-      { "<leader>fg", "<cmd>Telescope live_grep<cr>", desc = "Live grep" },
-      { "<leader>fb", "<cmd>Telescope buffers<cr>", desc = "Find buffers" },
-      { "<leader>fh", "<cmd>Telescope help_tags<cr>", desc = "Find help" },
-      { "<leader>fc", "<cmd>Telescope commands<cr>", desc = "Find commands" },
+      { "<leader>fg", "<cmd>Telescope live_grep<cr>",  desc = "Live grep" },
+      { "<leader>fb", "<cmd>Telescope buffers<cr>",    desc = "Find buffers" },
+      { "<leader>fh", "<cmd>Telescope help_tags<cr>",  desc = "Find help" },
+      { "<leader>fc", "<cmd>Telescope commands<cr>",   desc = "Find commands" },
     },
     config = function()
       local telescope = require("telescope")
+      local actions = require("telescope.actions")
+      local action_state = require("telescope.actions.state")
       telescope.setup({
         defaults = {
           preview = {
@@ -62,6 +84,19 @@ return {
             },
           },
         },
+        pickers = {
+          find_files = {
+            mappings = {
+              i = {
+                ["<C-d>"] = function(prompt_bufnr) -- Diffsplit in find_files
+                  local selection = action_state.get_selected_entry()
+                  actions.close(prompt_bufnr)
+                  vim.cmd("vert diffsplit " .. selection.value)
+                end,
+              },
+            },
+          },
+        },
       })
       telescope.load_extension("fzf")
     end,
@@ -71,7 +106,12 @@ return {
   {
     "folke/flash.nvim",
     event = "VeryLazy",
-    opts = {},
+    opts = {
+      modes = {
+        -- Use native `f`, `F`, `t`, `T` motions
+        char = { enabled = false },
+      },
+    },
     keys = {
       {
         "s",
@@ -89,14 +129,6 @@ return {
         end,
         desc = "Flash Treesitter",
       },
-      {
-        "r",
-        mode = "o",
-        function()
-          require("flash").remote()
-        end,
-        desc = "Remote Flash",
-      },
     },
   },
 
@@ -106,44 +138,51 @@ return {
     dependencies = {
       "nvim-treesitter/nvim-treesitter",
     },
+    opts = {},
     keys = {
       { "<leader>t", "<cmd>AerialToggle!<CR>", desc = "Toggle aerial" },
     },
-    config = function()
-      require("aerial").setup({
-        on_attach = function(bufnr)
-          vim.keymap.set("n", "{", "<cmd>AerialPrev<CR>", { buffer = bufnr })
-          vim.keymap.set("n", "}", "<cmd>AerialNext<CR>", { buffer = bufnr })
-        end,
-      })
-    end,
   },
 
   -- Seamless navigation between tmux panes and vim splits
   {
     "christoomey/vim-tmux-navigator",
     lazy = false,
-    cmd = {
-      "TmuxNavigateLeft",
-      "TmuxNavigateDown",
-      "TmuxNavigateUp",
-      "TmuxNavigateRight",
-      "TmuxNavigatePrevious",
-      "TmuxNavigatorProcessList",
-    },
     keys = {
       { "<c-h>", "<cmd><C-U>TmuxNavigateLeft<cr>" },
       { "<c-j>", "<cmd><C-U>TmuxNavigateDown<cr>" },
       { "<c-k>", "<cmd><C-U>TmuxNavigateUp<cr>" },
       { "<c-l>", "<cmd><C-U>TmuxNavigateRight<cr>" },
-      { "<c-\\>", "<cmd><C-U>TmuxNavigatePrevious<cr>" },
     },
+    -- Fix for terminal navigation in nvim terminals (including claudecode/opencode)
     config = function()
-      -- Fix for terminal navigation in nvim terminals (including claudecode/opencode)
-      vim.keymap.set('t', '<C-h>', [[<C-\><C-n><cmd>TmuxNavigateLeft<cr>]], { silent = true })
-      vim.keymap.set('t', '<C-j>', [[<C-\><C-n><cmd>TmuxNavigateDown<cr>]], { silent = true })
-      vim.keymap.set('t', '<C-k>', [[<C-\><C-n><cmd>TmuxNavigateUp<cr>]], { silent = true })
-      vim.keymap.set('t', '<C-l>', [[<C-\><C-n><cmd>TmuxNavigateRight<cr>]], { silent = true })
-    end,
-  }
+      vim.keymap.set("t", "<C-h>", [[<C-\><C-n><cmd>TmuxNavigateLeft<cr>]], { silent = true })
+      vim.keymap.set("t", "<C-j>", [[<C-\><C-n><cmd>TmuxNavigateDown<cr>]], { silent = true })
+      vim.keymap.set("t", "<C-k>", [[<C-\><C-n><cmd>TmuxNavigateUp<cr>]], { silent = true })
+      vim.keymap.set("t", "<C-l>", [[<C-\><C-n><cmd>TmuxNavigateRight<cr>]], { silent = true })
+    end
+  },
+
+  -- Edit the filesystem like a buffer
+  {
+    'stevearc/oil.nvim',
+    ---@module 'oil'
+    ---@type oil.SetupOpts
+    opts = {
+      default_file_explorer = false,
+      float = {
+        padding = 2,
+        max_width = 0.6,
+        max_height = 0.6,
+        border = "single",
+      },
+    },
+    -- Optional dependencies
+    dependencies = { "nvim-tree/nvim-web-devicons" }, -- use if you prefer nvim-web-devicons
+    -- Lazy loading is not recommended because it is very tricky to make it work correctly in all situations.
+    lazy = false,
+    keys = {
+      { "<leader>z", function() require("oil").toggle_float() end },
+    },
+  },
 }

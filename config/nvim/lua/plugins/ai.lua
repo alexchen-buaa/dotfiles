@@ -15,7 +15,6 @@ return {
     "coder/claudecode.nvim",
     dependencies = { "folke/snacks.nvim" },
     opts = {
-      terminal_cmd = "~/.claude/local/claude", -- Point to local installation
       terminal = {
         provider = "auto",
         split_width_percentage = 0.45,
