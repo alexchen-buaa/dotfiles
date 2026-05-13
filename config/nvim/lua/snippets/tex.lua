@@ -337,7 +337,7 @@ local static_math = {
 -- Document and environment scaffolding.
 add_fmt("auto", "mk", "$<>$", { i(1) }, { condition = in_text })
 add_fmt("auto", "dm", "\\[\n  <>\n\\]", { i(1) }, { condition = in_text })
-add_fmt("auto", "eqn", "\\begin{equation}\n  <>\n\\end{equation}", { i(1) }, {
+add_fmt("auto", "eqnn", "\\begin{equation}\n  <>\n\\end{equation}", { i(1) }, {
   condition = in_text,
 })
 add_fmt("regular", "beg", "\\begin{<>}\n<>\n\\end{<>}", {

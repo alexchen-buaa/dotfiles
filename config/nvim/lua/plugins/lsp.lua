@@ -90,6 +90,16 @@ return {
         on_attach = on_attach_ruff,
       })
 
+      vim.lsp.config('bashls', {
+        settings = {
+          bashIde = {
+            shfmt = {
+              caseIndent = true,
+            }
+          }
+        }
+      })
+
       -- Customize lua_ls settings
       vim.lsp.config('lua_ls', {
         settings = {

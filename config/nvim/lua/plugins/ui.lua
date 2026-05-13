@@ -22,11 +22,25 @@ return {
         end,
       })
       vim.api.nvim_create_autocmd("FileType", {
+        pattern = { "sh", "bash" },
+        callback = function()
+          vim.opt_local.tabstop = 2
+          vim.opt_local.shiftwidth = 2
+        end,
+      })
+      vim.api.nvim_create_autocmd("FileType", {
         pattern = { "tex" },
         callback = function()
           vim.opt_local.tabstop = 2
           vim.opt_local.shiftwidth = 2
           vim.opt_local.wrap = true
+        end,
+      })
+      vim.api.nvim_create_autocmd("FileType", {
+        pattern = { "json", "jsonc" },
+        callback = function()
+          vim.opt_local.tabstop = 2
+          vim.opt_local.shiftwidth = 2
         end,
       })
     end
@@ -59,6 +73,15 @@ return {
         },
       })
     end,
+  },
+
+  -- Show current code context (function/class) at top of screen
+  {
+    "nvim-treesitter/nvim-treesitter-context",
+    opts = {
+      max_lines = 1,
+      trim_scope = "inner",
+    },
   },
 
   -- Notifications and LSP progress messages

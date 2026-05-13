@@ -20,10 +20,12 @@ cd ~/.dotfiles
 │
 ├── config/
 │   ├── alacritty/          # Terminal emulator (TOML)
+│   ├── ghostty/            # Terminal emulator
 │   ├── nvim/               # Neovim editor (Lua config, lazy.nvim)
 │   ├── pip/                # Python package manager
 │   ├── starship.toml       # Shell prompt
 │   ├── tmuxthemes/         # Tmux themes
+│   ├── yazi/               # File manager
 │   └── zsh/                # Shell environment
 │       ├── env.zsh         # PATH and environment variables
 │       ├── tools.zsh       # Aliases, functions, tool inits
@@ -51,13 +53,13 @@ cd ~/.dotfiles
 - Tool integrations (fzf, zoxide, yazi, conda)
 
 **Editor** (Neovim)
-- lazy.nvim plugin manager (30 plugins)
-- LSP support (pyright, lua_ls)
-- AI integration (claudecode, opencode)
+- lazy.nvim plugin manager (~25 plugins)
+- LSP support (pyright, ruff, lua_ls, texlab, bashls)
 - Key: `<leader> = ,`
 
 **Terminal**
-- Alacritty (Gruvbox theme)
+- Alacritty (Gruvbox theme, TOML config)
+- Ghostty (Gruvbox theme)
 - Tmux (seamless vim/tmux navigation, prefix: Ctrl-a)
 
 **Tools**

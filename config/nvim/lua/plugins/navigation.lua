@@ -40,6 +40,7 @@ return {
               ["s"] = "git_add_file",
               ["u"] = "git_unstage_file",
               ["-"] = "git_toggle_file_stage",
+              ["c"] = "none",
               ["cc"] = "git_commit",
               ["gg"] = "none",
             },
@@ -52,7 +53,7 @@ return {
   -- Fuzzy finder
   {
     "nvim-telescope/telescope.nvim",
-    branch = "0.1.x",
+    version = "*",
     dependencies = {
       "nvim-lua/plenary.nvim",
       {
@@ -66,6 +67,8 @@ return {
       { "<leader>fb", "<cmd>Telescope buffers<cr>",    desc = "Find buffers" },
       { "<leader>fh", "<cmd>Telescope help_tags<cr>",  desc = "Find help" },
       { "<leader>fc", "<cmd>Telescope commands<cr>",   desc = "Find commands" },
+      { "<leader>ft", "<cmd>Telescope treesitter<cr>",   desc = "Find treesitters" },
+      { "<leader>f/", "<cmd>Telescope current_buffer_fuzzy_find<cr>",   desc = "Current buffer fuzzy find" },
     },
     config = function()
       local telescope = require("telescope")
@@ -110,6 +113,7 @@ return {
       modes = {
         -- Use native `f`, `F`, `t`, `T` motions
         char = { enabled = false },
+        search = { enabled = true },
       },
     },
     keys = {
@@ -128,6 +132,14 @@ return {
           require("flash").treesitter()
         end,
         desc = "Flash Treesitter",
+      },
+      {
+        "<c-s>",
+        mode = { "c" },
+        function()
+          require("flash").toggle()
+        end,
+        desc = "Toggle Flash Search"
       },
     },
   },

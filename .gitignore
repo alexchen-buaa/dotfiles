@@ -3,4 +3,6 @@
 *.swp
 *~
 .nvimlog
+AGENTS.md
 CLAUDE.md
+config/yazi/flavors/

@@ -5,5 +5,4 @@ return {
   { import = "plugins.navigation" },
   { import = "plugins.edit" },
   { import = "plugins.git" },
-  { import = "plugins.ai" },
 }
