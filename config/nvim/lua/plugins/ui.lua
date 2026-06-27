@@ -5,45 +5,6 @@ return {
     "nvim-treesitter/nvim-treesitter",
     lazy = false, -- Does NOT support lazy-loading
     build = ":TSUpdate",
-    config = function()
-      -- Autocmds for reliable setting (over ftplugins)
-      vim.api.nvim_create_autocmd("FileType", {
-        pattern = { "python" },
-        callback = function()
-          -- vim.treesitter.start()
-          vim.opt_local.indentexpr = "v:lua.require'nvim-treesitter'.indentexpr()"
-        end,
-      })
-      vim.api.nvim_create_autocmd("FileType", {
-        pattern = { "lua" },
-        callback = function()
-          vim.opt_local.tabstop = 2
-          vim.opt_local.shiftwidth = 2
-        end,
-      })
-      vim.api.nvim_create_autocmd("FileType", {
-        pattern = { "sh", "bash" },
-        callback = function()
-          vim.opt_local.tabstop = 2
-          vim.opt_local.shiftwidth = 2
-        end,
-      })
-      vim.api.nvim_create_autocmd("FileType", {
-        pattern = { "tex" },
-        callback = function()
-          vim.opt_local.tabstop = 2
-          vim.opt_local.shiftwidth = 2
-          vim.opt_local.wrap = true
-        end,
-      })
-      vim.api.nvim_create_autocmd("FileType", {
-        pattern = { "json", "jsonc" },
-        callback = function()
-          vim.opt_local.tabstop = 2
-          vim.opt_local.shiftwidth = 2
-        end,
-      })
-    end
   },
 
   -- Gruvbox colorscheme - Default contrast (medium)
